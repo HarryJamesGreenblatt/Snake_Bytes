@@ -21,9 +21,9 @@ DESCRIPTION
 PROCESS
     #1 Import the neccessary sys, json, and pyfiglet modules
 
-    #2.a Check if the 'show_font_options' flag has been provided
+    #2 Check if the 'show_font_options' flag has been provided
 
-    #2.b Print the data provided as a Command Line Argument using an optional typesetting Font     
+    #3 Print the data provided as a Command Line Argument using an optional typesetting Font     
 
 
 INPUT
@@ -62,7 +62,7 @@ import pyfiglet, sys, json   #   generate ASCII, interface with the CLI, convert
 ##########################################################################################
 
 
-# 2.a Check if the 'show_font_options' flag has been provided
+# 2 Check if the 'show_font_options' flag has been provided
 ##########################################################################################
 if sys.argv[1] == 'show_font_options':       #   If the first Command Line Argument 
                                              #   provided explicitly reads:                                     
@@ -74,7 +74,7 @@ if sys.argv[1] == 'show_font_options':       #   If the first Command Line Argum
 ##########################################################################################
 
 
-# 2.b Print the data provided as a Command Line Argument using an optional Font 
+# 3 Print the Text provided as a Command Line Argument using an optional Font 
 ##########################################################################################
 else:                                        #   Otherwise, no 'show_font_options'
                                              #   has been flag passed into the CLI.
