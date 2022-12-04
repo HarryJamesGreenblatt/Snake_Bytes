@@ -1,8 +1,14 @@
 import pyfiglet, sys, json
 
+
 if sys.argv[1] == 'show_font_options':
 
-    print( json.dumps( pyfiglet.FigletFont.getFonts() ) )
+    print( 
+        json.dumps( 
+            pyfiglet.FigletFont.getFonts() 
+        ) 
+    )
+
 
 else:
 
