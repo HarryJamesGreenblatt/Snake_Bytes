@@ -79,27 +79,17 @@ if sys.argv[1] == 'show_font_options':       #   If the first Command Line Argum
 else:                                        #   Otherwise, no 'show_font_options'
                                              #   has been flag passed into the CLI.
     if(                                      #      If the Number of Args passed into the  
-        len(sys.argv) == 3                   #      CLI is 2, then the user has specified 
+        len(sys.argv) ==  4                  #      CLI is 3, then the user has specified 
         and                                  #      a Font selection. ADDITIONALLY, 
         len(sys.argv[2]) > 1                 #      If it can be verified that Font   
     ):                                       #      Selection provided in the CLI is not     
                                              #      just an empty string,     
         pyfiglet.print_figlet(               #       
             sys.argv[1],                     #      then generate ASCII Typesetting        
-            sys.argv[2]                      #      using the Selected Font.       
+            sys.argv[2],                     #      using the Selected Font.       
+            width=int(sys.argv[3])           #      
         )                                    #      
                                              #
-    elif(                                    #      If the Number of Args passed into the  
-        len(sys.argv) == 4                   #      CLI is 3, then the user has specified 
-        and                                  #      a Font selection. ADDITIONALLY, 
-        len(sys.argv[2]) > 1                 #      If it can be verified that Font   
-    ):                                       #      Selection provided in the CLI is not     
-                                             #      just an empty string,     
-        pyfiglet.print_figlet(               #       
-            sys.argv[1],                     #      then generate ASCII Typesetting        
-            sys.argv[2]                      #      using the Selected Font.       
-        )                                    #      
-                                             #      
     else:                                    #         otherwise,    
                                              #            
         pyfiglet.print_figlet(               #             just generate ASCII Typesetting                
