@@ -90,9 +90,9 @@ else:                                        #   Otherwise, no 'show_font_option
             width=int(sys.argv[3])           #      
         )                                    #      
                                              #
-    else:                                    #         otherwise,    
+    else:                                    #      otherwise,    
                                              #            
-        pyfiglet.print_figlet(               #             just generate ASCII Typesetting                
-            sys.argv[1]                      #             using the Default Font.      
+        pyfiglet.print_figlet(               #          just generate ASCII Typesetting                
+            sys.argv[1]                      #          using the Default Font.      
         )                                    #   
 #########################################################################################
