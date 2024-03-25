@@ -1,7 +1,7 @@
 import sys, re
 
 # Get the JSX string from the command-line arguments
-jsx = sys.argv
+jsx = sys.argv[1]
 
 # Compile a regular expression pattern to match '<' and '>' characters
 regex = re.compile(r'<(?!>=)|(?<!=)>')
