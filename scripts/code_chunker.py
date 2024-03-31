@@ -20,7 +20,8 @@ INPUT
     Text content from the clipboard, passed as a command-line argument.
 
 OUTPUT
-    The script outputs a GUI window with scrollable text chunks. Each chunk can be copied to the clipboard with the click of a button. A status message confirms the action.
+    The script outputs a GUI window with scrollable text chunks. 
+    Each chunk can be copied to the clipboard with the click of a button. A status message confirms the action.
 
 DEPENDENCIES
     - tkinter for creating the GUI elements
