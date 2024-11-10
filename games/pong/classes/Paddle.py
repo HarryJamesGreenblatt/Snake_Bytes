@@ -1,5 +1,5 @@
 import pygame, random
-from config import HEIGHT, WHITE
+from config import HEIGHT, WHITE, PADDLE_SPEED, PADDLE_WIDTH, PADDLE_HEIGHT
 
 class Paddle:
     """
@@ -17,8 +17,8 @@ class Paddle:
             x (int): The x-coordinate of the paddle's initial position.
             y (int): The y-coordinate of the paddle's initial position.
         """
-        self.rect = pygame.Rect(x, y, 10, 100)
-        self.speed = 7
+        self.rect = pygame.Rect(x, y, PADDLE_WIDTH, PADDLE_HEIGHT)
+        self.speed = PADDLE_SPEED
 
     def move(self, up, down):
         """

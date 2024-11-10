@@ -20,8 +20,7 @@ class Pong:
         right_score (int): The score of the right player.
         font (pygame.font.Font): The font used to display the scores.
     """
-    def __init__(self,\
-                        display):
+    def __init__(self, display):
         """
         Initialize the game with paddles, a ball, and scores.
 
@@ -50,6 +49,10 @@ class Pong:
         # Set the font for displaying the scores
         self.font = pygame.font.Font(None, 74)
 
+        # Initialize the cooldown period
+        self.cooldown = 60  # Number of frames to wait before the ball starts moving again
+        self.cooldown_counter = 0
+
     def handle_quit(self):
         """Handle user input events such as quitting the game."""
         for event in pygame.event.get():
@@ -58,21 +61,30 @@ class Pong:
                 sys.exit()
 
     def check_ball_out_of_bounds(self):
-        """Check if the ball is out of bounds and update the score accordingly."""
+        """Check if the ball is out of bounds, update the score, then reset the ball and paddles."""
         if self.ball.rect.left <= -self.boundary_offset:
+            # Increment the right player's score
             self.right_score += 1
             # Reset the ball to move towards the left player
             self.ball.reset(direction=-1)
+             # Start the cooldown period
+            self.cooldown_counter = self.cooldown
 
         if self.ball.rect.right >= WIDTH + self.boundary_offset:
+            # Increment the left player's score
             self.left_score += 1
             # Reset the ball to move towards the right player
             self.ball.reset(direction=1)
-
+            # Start the cooldown period
+            self.cooldown_counter = self.cooldown
+       
     def update(self):
         """Update the game state, including paddle and ball positions."""
-        # Move the ball 
-        self.ball.move()
+        # Move the ball only if the cooldown period is over
+        if self.cooldown_counter == 0:
+            self.ball.move()
+        else:
+            self.cooldown_counter -= 1
 
         # Move the paddles to automatically to follow the ball
         # and check for collisions with paddles

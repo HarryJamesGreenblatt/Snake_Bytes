@@ -1,11 +1,11 @@
 import pygame, random, math
-from config import WIDTH,            \
-                   HEIGHT,           \
-                   WHITE,            \
-                   MAX_BOUNCE_ANGLE, \
-                   MAX_SPEED,        \
-                   SPIN_FACTOR,      \
-                   BALL_MASS,        \
+from config import WIDTH,                 \
+                   HEIGHT,                \
+                   WHITE,                 \
+                   BALL_MAX_BOUNCE_ANGLE, \
+                   BALL_MAX_SPEED,        \
+                   BALL_SPIN_FACTOR,      \
+                   BALL_MASS,             \
                    GRAVITY
 
 class Ball:
@@ -90,12 +90,12 @@ class Ball:
             # Calculate the relative position of the ball on the paddle
             relative_intersect_y = (paddle.rect.y + (paddle.rect.height / 2)) - (self.rect.y + (self.rect.height / 2))
             normalized_relative_intersect_y = relative_intersect_y / (paddle.rect.height / 2)
-            bounce_angle = normalized_relative_intersect_y * MAX_BOUNCE_ANGLE
+            bounce_angle = normalized_relative_intersect_y * BALL_MAX_BOUNCE_ANGLE
 
             # Adjust the ball's speed and angle
             self.speed_x = -self.speed_x
             self.speed_y = self.speed_x * math.sin(bounce_angle) / self.mass  # Factor in the mass of the ball
-            self.spin = normalized_relative_intersect_y * SPIN_FACTOR
+            self.spin = normalized_relative_intersect_y * BALL_SPIN_FACTOR
 
             # Increase speed with each successive hit
             self.speed_x *= 1.1
@@ -105,8 +105,8 @@ class Ball:
             self.mass *= 0.99
 
             # Cap the speed to the maximum value
-            self.speed_x = max(min(self.speed_x, MAX_SPEED), -MAX_SPEED)
-            self.speed_y = max(min(self.speed_y, MAX_SPEED), -MAX_SPEED)
+            self.speed_x = max(min(self.speed_x, BALL_MAX_SPEED), -BALL_MAX_SPEED)
+            self.speed_y = max(min(self.speed_y, BALL_MAX_SPEED), -BALL_MAX_SPEED)
 
             # Adjust the ball's position slightly to prevent it from getting stuck
             self.unstick(paddle)
